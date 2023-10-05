@@ -1,0 +1,8 @@
+---
+applications:
+- name: ui5-vitepress
+  path: .
+  memory: 64M
+  disk_quota: 128M
+  buildpacks:
+    - staticfile_buildpack

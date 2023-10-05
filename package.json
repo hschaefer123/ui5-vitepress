@@ -1,0 +1,33 @@
+{
+    "name": "ui5-vitepress",
+    "version": "1.0.0",
+    "description": "Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "vitepress --open",
+        "build": "vitepress build",
+        "preview": "vitepress preview --port 8080",
+        "deploy": "cf push"
+    },
+    "author": "Holger Schäfer",
+    "homepage": "https://btp.udina.de",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hschaefer123/ui5-vitepress.git"
+    },
+    "devDependencies": {
+        "@types/markdown-it-plantuml": "^1.4.2",
+        "@ui5/webcomponents": "^1.18.0",
+        "autoprefixer": "^10.4.16",
+        "cssnano": "^6.0.1",
+        "markdown-it-implicit-figures": "^0.12.0",
+        "markdown-it-link-attributes": "^4.0.1",
+        "markdown-it-plantuml": "^1.4.1",
+        "postcss": "^8.4.31",
+        "tailwindcss": "^3.3.3",
+        "vitepress": "^1.0.0-rc.20",
+        "vue": "^3.3.4"
+    }
+}

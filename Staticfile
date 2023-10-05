@@ -1,0 +1,10 @@
+root: site
+#enable_http2: enabled
+location_include: includes/*.conf
+force_https: true
+http_strict_transport_security: true
+http_strict_transport_security_include_subdomains: true
+# currently not registered
+#http_strict_transport_security_preload: true
+server_tokens: off
+ssl_protocols: TLSv1.2 TLSv1.3

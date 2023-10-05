@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "D2.previewTheme": "default",
+    "D2.updateOnSave": true,
+    "D2.previewSketch": true
+}

@@ -1,0 +1,16 @@
+# vitepress build output
+.vitepress/.temp
+.vitepress/cache
+.vitepress/dist
+site/
+
+# Node modules
+node_modules/
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### avoid Win/Mac issues
+package-lock.json
