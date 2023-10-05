@@ -1,15 +1,9 @@
-# UI5 VitePress 
-Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
-
-[![MIT License][license-shield]][license-url]
-
-<br />
 <div align="center">
   <a href="https://github.com/hschaefer123/ui5-vitepress">
     <img src="src/public/icons/ui5/UI5.svg" alt="Logo" width="50" height="50">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">UI5 VitePress</h3>
 
   <p align="center">
     Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
