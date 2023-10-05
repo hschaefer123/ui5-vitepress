@@ -6,7 +6,7 @@ Pre-configured “Ready to Run” solution to get started immediately with ViteP
 <br />
 <div align="center">
   <a href="https://github.com/hschaefer123/ui5-vitepress">
-    <img src="src/public/icons/logo/ui5/UI5.svg" alt="Logo" width="50" height="50">
+    <img src="src/public/icons/ui5/UI5.svg" alt="Logo" width="50" height="50">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
@@ -67,7 +67,7 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/hschaefer123/ui5-vitepress.git
    ```
 3. Install NPM packages
    ```sh
