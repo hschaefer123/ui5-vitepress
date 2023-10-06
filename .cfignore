@@ -6,13 +6,16 @@ src/
 
 # files
 .gitignore
-generateIconInfo.js
+LICENSE
+odata2ts.config.ts
+postcss.config.ts
 package-lock.json
 package.json
 README.md
+tailwind.config.js
 tsconfig.json
 
-### OSX ###
+# OSX
 .DS_Store
 .AppleDouble
 .LSOverride

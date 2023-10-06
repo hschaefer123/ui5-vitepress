@@ -63,7 +63,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: `<a href="/guide/trippin.html">π</a>`,
+      message: `<a class="u-pi" href="/guide/trippin.html">π</a>`,
       copyright: `Copyright © 2020-${new Date().getFullYear()} by YOU`,
     },
 

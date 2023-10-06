@@ -33,11 +33,18 @@ You can use the following npm scripts inside your ``package.json``:
 Script | Description
 :----: | -----------
 dev | Start a local dev server running at ``http://localhost:5173`` with instant hot updates.
-build | Build the VitePress site for production.
-preview | Locally preview the production build.
+build | Build the VitePress site for production (SSR to ``./site``).
+preview | Locally preview the ``./site`` production build.
 deploy | Deploy it to SAP BTP Cloud Foundry or [Other Platforms](https://vitepress.dev/guide/deploy#platform-guides) depending on settings inside the ``manifest.yaml``.
 
 ### SAP BTP Deployment
+
+::: warning Prerequisite
+Make sure to [Log in with the CLI](https://docs.cloudfoundry.org/cf-cli/getting-started.html) to your Cloud Foundry instance:
+
+``cf login -a API-URL -u USERNAME -p PASSWORD -o ORG -s SPACE``
+:::
+
 Deploy your builded site directory tp SAP BTP CloudFoundry using the following ``manifest.yaml``file using the [Staticfile buildpack](https://docs.cloudfoundry.org/buildpacks/staticfile/):
 
 ```yaml
@@ -55,11 +62,31 @@ applications:
 NGINX requires 20 MB of RAM to serve static assets. When using the Staticfile buildpack, Cloud Foundry push the apps with the ``-m 64M`` option to reduce RAM allocation from the default 1 GB that are allocated to containers by default.
 :::
 
-::: warning Before Deployment
-Make sure to [Log in with the CLI](https://docs.cloudfoundry.org/cf-cli/getting-started.html) to your Cloud Foundry instance:
+The file ``./cfignore`` controls, which files should be excluded from CF upload:
 
-``cf login -a API-URL -u USERNAME -p PASSWORD -o ORG -s SPACE``
-:::
+```yaml
+# folder
+.vitepress/
+.vscode/
+node_modules/
+src/
+
+# files
+.gitignore
+LICENSE
+odata2ts.config.ts
+package-lock.json
+package.json
+postcss.config.ts
+README.md
+tailwind.config.js
+tsconfig.json
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+```
 
 The [Staticfile configuration](https://docs.cloudfoundry.org/buildpacks/staticfile/#staticfile) inside the file ``Staticfile`` offers options for the NGINX server setup:
 
