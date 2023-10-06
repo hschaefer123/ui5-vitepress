@@ -63,7 +63,7 @@ export default defineConfig({
     ],
 
     footer: {
-      //message: `<a href="/imprint.html">Imprint</a> | <a href="/privacypolicy.html">Privacy Policy</a>`,
+      message: `<a href="/guide/trippin.html">π</a>`,
       copyright: `Copyright © 2020-${new Date().getFullYear()} by YOU`,
     },
 
@@ -224,7 +224,19 @@ function guide() {
           link: "/guide/badgen",
         },
       ],
-    },    
+    },
+    /*    
+    { 
+      text: "Easter Eggs",
+      collapsed: false,
+      items: [
+        {
+          text: "Trippin",
+          link: "/guide/trippin",
+        },                
+      ],
+    },
+    */    
   ];
 }
 
