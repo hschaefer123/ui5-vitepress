@@ -18,8 +18,10 @@ Pre-configured “Ready to Run” solution to get started immediately with ViteP
    ```
 3. Start dev server using
    ```js
-   npm run dev;
+   npm run dev
    ```
+
+The dev server automatically opens a browser window at [http://localhost:5173](http://localhost:5173).
 
 ## License
 
