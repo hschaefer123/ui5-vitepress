@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 <div align="center">
   <a href="https://github.com/hschaefer123/ui5-vitepress">
     <img src="src/public/icons/ui5/UI5.svg" alt="Logo" width="50" height="50">
@@ -13,7 +15,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![UI5 VitePress][UI5 VitePress Screenshot]](src/public/icons/ui5/UI5.svg)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -28,19 +30,6 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Vue][Vue.js]][Vue-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
