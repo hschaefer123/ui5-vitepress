@@ -3,7 +3,8 @@
         <div class="u-bar">
             <ui5-title level="H4">Persons ({{ this.count }})</ui5-title>
             <div class="u-bar-singleLineContent space-x-0 md:space-x-2">
-                <ui5-input class="w-full md:w-32" ref="searchField" show-clear-icon @input="handleSearch"
+                <ui5-input class="w-full md:w-32" ref="searchField" show-clear-icon 
+                    @input="handleSearch" @change="handleSearch"
                     placeholder="Search">
                     <ui5-icon id="searchIcon" slot="icon" name="search" />
                 </ui5-input>
@@ -11,10 +12,9 @@
         </div>
         <ui5-list class="full-width" id="personList" ref="list" mode="SingleSelect" :growing="this.growing"
             :busy="this.busy" @load-more="handleLoadMore">
-            <ui5-li v-for="person in persons" :key="person.userName" :icon="person.gender === 'Male' ? 'male' : 'female'"
-                :description="person.emails[0] ? person.emails[0] : ''" :additional-text="person.userName">{{
-                    person.firstName }} {{ person.lastName }} 
-            </ui5-li>
+            <ui5-li v-for="person in persons" :key="person.userName" 
+                :icon="person.gender === 'Male' ? 'male' : 'female'"
+                :additional-text="person.emails[0] ? person.emails[0] : '<unknown>'">{{person.firstName }} {{ person.lastName }} </ui5-li>
         </ui5-list>
     </div>
 </template>
@@ -61,11 +61,11 @@ export default defineComponent({
         }
     },
     mounted() {
-        this.fetchData();
+        this.fetchData(false);
     },
     computed: {
         growing() {
-            return (this.skip <= this.count - 1) ? "Button" : "None";
+            return (this.skip + this.top <= this.count - 1) ? "Button" : "None";
         },
         busy() {
             return this.loading;
@@ -73,13 +73,19 @@ export default defineComponent({
     },
     methods: {
         handleSearch: function (event) {
-            this.query = event.target.getAttribute("value");
-            this.fetchData();
+            const query = event.target.getAttribute("value"); 
+            const type = event.type;
+            // combine change/input to allow change and field reset
+            if (type === "change" || type === "input" && query.length === 0) {
+                this.query = query;
+                this.fetchData(false);
+            }
         },
-        handleLoadMore: function (event) {
-            this.fetchData();
+        handleLoadMore: function () {   
+            this.skip += this.top;
+            this.fetchData(true);
         },
-        fetchData: async function () {
+        fetchData: async function (more) {
             this.loading = true;
 
             // reset if new query
@@ -88,6 +94,9 @@ export default defineComponent({
                 this.persons = [];
                 this.skip = 0;
                 this.count = 0;
+            } else if (!more) {
+                this.loading = false;
+                return;
             }
 
             // build filter condition
@@ -106,6 +115,7 @@ export default defineComponent({
                 //.select("userName", "firstName", "lastName", "emails")                
                 //.search(this.query)
                 .filter(filter)
+                .orderBy("lastName", "firstName")
                 .top(this.top)
                 .skip(this.skip)
             );
@@ -117,7 +127,6 @@ export default defineComponent({
             }
 
             this.lastQuery = this.query;
-            this.skip += this.top;
             this.loading = false;
         }
     }
