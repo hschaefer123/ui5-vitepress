@@ -222,7 +222,7 @@ SalesOrder;SalesOrderItem;Status
 1000000000;00010;A
 ```
 
-```http [HTTP/REST]
+```http [REST Client]
 @host = http://localhost:4004
 
 # @name helloWorld

@@ -52,7 +52,7 @@ Deploy your builded site directory tp SAP BTP CloudFoundry using the following `
 applications:
 - name: ui5-vitepress
   path: .
-  memory: 64M
+  memory: 32M
   disk_quota: 128M
   buildpacks:
     - staticfile_buildpack

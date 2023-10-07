@@ -19,8 +19,7 @@
         "url": "https://github.com/hschaefer123/ui5-vitepress.git"
     },
     "devDependencies": {
-        "@odata2ts/http-client-fetch": "^0.6.2",
-        "@odata2ts/odata-service": "^0.17.1",
+        "@odata2ts/http-client-fetch": "^0.6.2",    
         "@odata2ts/odata2ts": "^0.30.0",
         "@types/markdown-it-plantuml": "^1.4.2",
         "@ui5/webcomponents": "^1.18.0",
