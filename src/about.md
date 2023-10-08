@@ -1,5 +1,9 @@
 # About
-This i a preconfigured Pre-configured ``“Ready to Run”`` solution to quickly enable developers to get started with vitepress and UI5 Web Components.
+This Pre-configured ``“Ready to Run”`` solution should help developers to get started immediately with VitePress and UI5 Web Components.
+
+It relieves you of the burden of having to find all the relevant tools yourself and then configure them.
+
+The core of this solution powers the [UDINA BTP](https://btp.udina.de/) site.
 
 ## Motivation
 

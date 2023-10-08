@@ -5,13 +5,12 @@
 ### Prerequisites
 - [Node.js](https://nodejs.org/de) version 18 or higher.
 - Terminal for accessing VitePress via its command line interface (CLI).
-- Text Editor with [Markdown](https://en.wikipedia.org/wiki/Markdown) syntax support.
-    - [VSCode](https://code.visualstudio.com/) is recommended, along with the [official Vue extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
+- [VSCode](https://code.visualstudio.com/) is recommended, along with the [official Vue extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
 
-After you have cloned [UI5 VitePress](https://github.com/hschaefer123/ui5-vitepress.git) to your local folder, you need to install dependencies using:
+After you have cloned [UI5 VitePress](https://github.com/hschaefer123/ui5-vitepress.git), you need to install the dependencies using:
 
 ```bash [npm]
-$ npm install
+npm install
 ```
 
 ### Up and Running
@@ -35,7 +34,7 @@ Script | Description
 dev | Start a local dev server running at ``http://localhost:5173`` with instant hot updates.
 build | Build the VitePress site for production (SSR to ``./site``).
 preview | Locally preview the ``./site`` production build.
-deploy | Deploy it to SAP BTP Cloud Foundry or [Other Platforms](https://vitepress.dev/guide/deploy#platform-guides) depending on settings inside the ``manifest.yaml``.
+deploy | Deploy it to SAP BTP Cloud Foundry (or [Other Platforms](https://vitepress.dev/guide/deploy#platform-guides)) depending on the settings inside the ``manifest.yaml``.
 
 ### SAP BTP Deployment
 
@@ -45,7 +44,7 @@ Make sure to [Log in with the CLI](https://docs.cloudfoundry.org/cf-cli/getting-
 ``cf login -a API-URL -u USERNAME -p PASSWORD -o ORG -s SPACE``
 :::
 
-Deploy your builded site directory tp SAP BTP CloudFoundry using the following ``manifest.yaml``file using the [Staticfile buildpack](https://docs.cloudfoundry.org/buildpacks/staticfile/):
+Deploy your builded site directory to SAP BTP CloudFoundry using the following ``manifest.yaml`` file leveraging the [Staticfile buildpack](https://docs.cloudfoundry.org/buildpacks/staticfile/):
 
 ```yaml
 ---
@@ -106,12 +105,12 @@ This project comes with extension recommendations, that are very helpful:
 
 Extension | Description
 :-------: | -----------
-Vue.volar | Language support for Vue 3.
-bradlc.vscode-tailwindcss | Intelligent Tailwind CSS tooling for VS Code.
-humao.rest-client | REST Client for Visual Studio Code.
-jebbs.plantuml | Rich PlantUML support for Visual Studio Code.
-terrastruct.d2 | Support for .d2 files.
-joaompinto.vscode-graphviz | GraphViz (dot) language support for Visual Studio Code.
+[Vue.volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) | Language support for Vue 3.
+[bradlc.vscode-tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) | Intelligent Tailwind CSS tooling for VS Code.
+[humao.rest-client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) | REST Client for Visual Studio Code.
+[jebbs.plantuml](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) | Rich PlantUML support for Visual Studio Code.
+[terrastruct.d2](https://marketplace.visualstudio.com/items?itemName=terrastruct.d2) | Support for .d2 files.
+[joaompinto.vscode-graphviz](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz) | GraphViz (dot) language support for Visual Studio Code.
 
 ### File Structure
 The following file structure is used, where docs are lcoated inside (``./src``).
@@ -130,6 +129,7 @@ The ``srv`` directory is considered the **project root** of the VitePress site. 
 │  │  │  ├─ ToDo.vue
 │  │  │  ├─ ToDoItem.vue
 │  │  │  └─ ToDoList.vue
+│  │  │  └─ Trippin.vue
 │  │  ├─ mixins
 │  │  │  ├─ u-zoom-vanilla.js
 │  │  │  └─ UI5WebComponentsMixin.js

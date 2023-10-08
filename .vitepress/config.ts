@@ -63,7 +63,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: `<a class="u-pi" href="/guide/trippin.html">π</a>`,
+      message: `<a class="u-pi" href="/guide/trip-pin.html">π</a>`,
       copyright: `Copyright © 2020-${new Date().getFullYear()} by YOU`,
     },
 
@@ -227,12 +227,12 @@ function guide() {
     },
     /*    
     { 
-      text: "Easter Eggs",
+      text: "Easter Egg",
       collapsed: false,
       items: [
         {
-          text: "Trippin",
-          link: "/guide/trippin",
+          text: "TripPin",
+          link: "/guide/trip-pin",
         },                
       ],
     },
