@@ -1,10 +1,18 @@
 # UI5 VitePress
 Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
 
+![Project Screenshot](./src/public/UI5-VitePress-fire-and-water.jpg)
+<center>Fire and Water Design System</center>
+
 ## Features
 
-- If your project has a lot of features, list them here.
-
+- Vue based Single-File Components (SFC)
+- UI5 Web Components implementing the Fiori design system.
+- PostCSS preprocessor transforming CSS with plugins:
+   - Tailwind CSS enabling a utility-first driven design system.
+   - Autoprefixer adding vendor prefixes to CSS rules.
+   - cssnano optimizing for production with modern CSS compression.
+- PlantUML creating diagrams from plain text.
 
 ## Installation
 
@@ -22,6 +30,8 @@ Pre-configured “Ready to Run” solution to get started immediately with ViteP
    ```
 
 The dev server automatically opens a browser window at [http://localhost:5173](http://localhost:5173).
+
+Everything else is documented inside VitePress.
 
 ## License
 
