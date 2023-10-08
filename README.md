@@ -1,7 +1,8 @@
 # UI5 VitePress
 Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
 
-Fire and Water Design System
+**Fire and Water Design System**
+
 ![Project Screenshot](./src/public/UI5-VitePress-fire-and-water.jpg)
 
 ## Features
