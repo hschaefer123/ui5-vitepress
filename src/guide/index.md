@@ -24,6 +24,17 @@ In addition, it enables the integration of dynamic and interactive tools:
 </div>
 :::
 
+## Are there alternatives?
+You should make sure that the tool meets the requirements (do you need multilanguage?).
+
+Over time, the requirements grow and then it's good to have chosen a tool that supports your favorite web framework, in order to keep the learning and training effort low.
+
+Tool | Description
+:--: | -----------
+[VitePress](https://vitepress.dev/) | Powered by Vite and Vue 3<ul><li>[VuePress](https://v2.vuepress.vuejs.org/) as predecessor</li></ul>
+[Docusaurus](https://docusaurus.io/) | Powered by MDX and React
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) | Powered by Python<ul><li>No Multilanguage</li><li>Used by [UI5 Tooling](https://sap.github.io/ui5-tooling/stable/)</li></ul>
+
 ## Who is using VitePress?
 The following resources are a good startting point to find additional inspirations and components:
 
@@ -34,3 +45,4 @@ Usage | Description
 [CAPire](https://cap.cloud.sap/docs/) | CAP - The Cloud Application Programming Model ([Sources](https://github.com/cap-js/docs)).
 [Vue.js](https://vuejs.org/) | The Progressive JavaScript Framework ([Sources](https://github.com/vuejs/docs)).
 [More Use Cases](https://vitepress.dev/guide/what-is-vitepress#use-cases) | VitePress Use Cases.
+
