@@ -18,3 +18,6 @@ const TripPin = defineClientComponent(() => {
 <ClientOnly>  
   <TripPin/>
 </ClientOnly>
+
+## What about SSR?
+[Here we go](/guide/trip-pin-ssr){class="learn-more"}
