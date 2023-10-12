@@ -10,11 +10,14 @@
                 </ui5-input>
             </div>
         </div>
-        <ui5-list class="full-width" id="personList" ref="list" mode="SingleSelect" :growing="this.growing"
+        <ui5-list class="full-width" id="personList" ref="list" mode="SingleSelect" 
+            :growing="this.growing"
             :busy="this.busy" @load-more="handleLoadMore">
             <ui5-li v-for="person in persons" :key="person.userName" 
                 :icon="person.gender === 'Male' ? 'male' : 'female'"
-                :additional-text="person.emails[0] ? person.emails[0] : '<unknown>'">{{person.firstName }} {{ person.lastName }} </ui5-li>
+                :additional-text="person.emails[0] ? person.emails[0] : '<unknown>'">
+                    {{person.firstName }} {{ person.lastName }}
+            </ui5-li>
         </ui5-list>
     </div>
 </template>
