@@ -225,18 +225,20 @@ function guide() {
         },
       ],
     },
-    /*    
     { 
-      text: "Easter Egg",
+      text: "OData Integration",
       collapsed: false,
       items: [
         {
-          text: "TripPin",
+          text: "Client-Side-Rendering",
           link: "/guide/trip-pin",
+        },  
+        {
+          text: "Server-Side-Rendering",
+          link: "/guide/trip-pin-ssr",
         },                
       ],
     },
-    */    
   ];
 }
 

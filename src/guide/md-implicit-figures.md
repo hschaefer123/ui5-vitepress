@@ -1,4 +1,4 @@
-# Implicit Figures <Badgen package="markdown-it-implicit-figures" style="float:right"/>
+# Implicit Figures <Badgen package="markdown-it-implicit-figures" class="float-right"/>
 Render images occurring by itself in a paragraph as ``<figure><img ...></figure>``.
 
 ## With Link  

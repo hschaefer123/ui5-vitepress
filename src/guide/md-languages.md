@@ -1,10 +1,10 @@
 # Languages
 VitePress uses [Markdown-it](https://github.com/markdown-it/markdown-it) as the parser, and [Shiki](https://shiki.matsu.io/) to highlight language syntax. 
 
-## Markdown-it <Badgen package="markdown-it" style="float:right"/>
+## Markdown-it <Badgen package="markdown-it" class="float-right"/>
 Markdown parser done right. Fast and easy to extend.
 
-## Shiki <Badgen package="shiki" style="float:right"/>
+## Shiki <Badgen package="shiki" class="float-right"/>
 Shiki is a beautiful Syntax Highlighter that uses [TextMate](https://macromates.com/) grammars from sources like [VS Code](https://github.com/microsoft/vscode) and handpicked from [git](https://github.com/shikijs/shiki/blob/main/scripts/grammarSources.ts).
 
 ### Default Languages

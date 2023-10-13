@@ -1,4 +1,4 @@
-# Vue.js <Badgen package="vue" style="float:right"/>
+# Vue.js <Badgen package="vue" class="float-right"/>
 
 ![Vue](/icons/logo/Vuejs.svg){class="u-right-brand" style="width:auto;height:5rem;"}[Vue.js](https://vuejs.org/) - The Progressive JavaScript Framework
 >An approachable, performant and versatile framework for building web user interfaces.

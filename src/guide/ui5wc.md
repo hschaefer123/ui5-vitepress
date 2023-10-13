@@ -1,4 +1,4 @@
-# UI5 Web Components <Badgen package="@ui5/webcomponents" style="float:right"/>
+# UI5 Web Components <Badgen package="@ui5/webcomponents" class="float-right"/>
 
 >![Vue](/icons/logo/UI5.svg){class="u-right-brand" style="width:auto;height:3rem;"} [UI5 Web Components](https://sap.github.io/ui5-webcomponents/) are framework-independent UI elements incorporating the SAP Fiori design.
 

@@ -10,7 +10,7 @@ between Text to Diagram tools](https://text-to-diagram.com/){class="learn-more"}
 [Ashley’s PlantUML Documentation](https://plantuml-documentation.readthedocs.io/en/latest/index.html){class="learn-more"}
 [Wikipedia](https://en.wikipedia.org/wiki/PlantUML){class="learn-more"}
 
-### Plugin <Badgen package="markdown-it-plantuml" style="float:right"/>
+### Plugin <Badgen package="markdown-it-plantuml" class="float-right"/>
 Plugin for creating block-level uml diagrams for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
 
 ### Sequence Diagram
