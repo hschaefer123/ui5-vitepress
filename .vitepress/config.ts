@@ -7,6 +7,15 @@ import { join } from "node:path";
 import MarkdownItImplicitFigures from "markdown-it-implicit-figures";
 import MarkdownItPlantuml from "markdown-it-plantuml";
 
+// shikiji loading
+import { promises as fs } from 'node:fs'
+import type { LanguageInput, IRawGrammar } from 'shikiji'
+const loadSyntax = async (file: string, name: string, alias: string = name): Promise<LanguageInput> => {
+  const src = await fs.readFile(join(__dirname, file))
+  const grammar: IRawGrammar = JSON.parse(src.toString())
+  return { name, aliases: [name, alias], ...grammar }
+}
+
 export default defineConfig({
   srcDir: "src",
   outDir: "site",
@@ -78,41 +87,16 @@ export default defineConfig({
     // Add support for your own languages.
     // https://github.com/shikijs/shiki/blob/main/docs/languages.md#supporting-your-own-languages-with-shiki
     languages: [
-      {
-        // https://github.com/SAP-samples/vscode-abap-cds/blob/main/syntaxes/cds.tmLanguage.json
-        id: "abapcds",
-        scopeName: "source.abapcds",
-        path: join(__dirname, "syntaxes/abapcds.tmLanguage.json"),
-        aliases: ['abapcds'],
-      },
-      {
-        // https://github.com/SAP/cds-textmate-grammar/blob/main/syntaxes/cds.tmLanguage.json
-        id: "cds",
-        scopeName: "source.cds",
-        path: join(__dirname, "syntaxes/cds.tmLanguage.json"),
-        aliases: ['cds'],
-      },
-      {
-        // https://github.com/mechatroner/vscode_rainbow_csv/blob/master/syntaxes/csv.tmLanguage.json
-        id: "csvc",
-        scopeName: "text.csv",
-        path: join(__dirname, "syntaxes/csv.tmLanguage.json"),
-        aliases: ['csv', 'csvc'],
-      },
-      {
-        // https://github.com/mechatroner/vscode_rainbow_csv/blob/master/syntaxes/csv.tmLanguage.json
-        id: "csvs",
-        scopeName: "text.scsv",
-        path: join(__dirname, "syntaxes/scsv.tmLanguage.json"),
-        aliases: ['csvs'],
-      },
-      {
-        // https://github.com/Huachao/vscode-restclient/blob/master/syntaxes/http.tmLanguage.json
-        id: "http",
-        scopeName: "source.http",
-        path: join(__dirname, "syntaxes/http.tmLanguage.json"),
-        aliases: ['http', 'rest'],
-      },
+      // https://github.com/SAP-samples/vscode-abap-cds/blob/main/syntaxes/cds.tmLanguage.json
+      await loadSyntax('syntaxes/abapcds.tmLanguage.json', 'abapcds'),
+      // https://github.com/SAP/cds-textmate-grammar/blob/main/syntaxes/cds.tmLanguage.json
+      await loadSyntax('syntaxes/cds.tmLanguage.json', 'cds'),
+      // https://github.com/mechatroner/vscode_rainbow_csv/blob/master/syntaxes/csv.tmLanguage.json
+      await loadSyntax('syntaxes/csv.tmLanguage.json', 'csv'),
+      // https://github.com/mechatroner/vscode_rainbow_csv/blob/master/syntaxes/csv.tmLanguage.json
+      await loadSyntax('syntaxes/scsv.tmLanguage.json', 'csvs'),
+      // https://github.com/Huachao/vscode-restclient/blob/master/syntaxes/http.tmLanguage.json
+      await loadSyntax('syntaxes/http.tmLanguage.json', 'rest'),
     ],
 
     // Configure the Markdown-it instance
