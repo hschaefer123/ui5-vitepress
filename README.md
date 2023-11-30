@@ -1,6 +1,8 @@
 # UI5 VitePress
 Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
 
+[Live Demo](https://hschaefer123.github.io/ui5-vitepress/)
+
 **Fire and Water Design System**
 
 ![Project Screenshot](./src/public/UI5-VitePress-fire-and-water.jpg)
@@ -14,6 +16,9 @@ Pre-configured “Ready to Run” solution to get started immediately with ViteP
    - Autoprefixer adding vendor prefixes to CSS rules.
    - cssnano optimizing for production with modern CSS compression.
 - PlantUML creating diagrams from plain text.
+- Deployment
+   - GitHub Pages using actions
+   - BTP using manifest
 
 ## Installation
 
