@@ -11,7 +11,7 @@ Andreas Kunz compared some available tools.
 <script setup>
 import { defineClientComponent } from 'vitepress'
 const TripPin = defineClientComponent(() => {
-  return import('@theme/components/TripPin.vue')
+  return import('@theme/components/Trippin.vue')
 })    
 </script>
 

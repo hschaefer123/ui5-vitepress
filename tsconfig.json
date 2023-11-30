@@ -22,7 +22,7 @@
         "components/*"
       ],
       "@theme/*": [
-        "vitepress/theme/*"
+        ".vitepress/theme/*"
       ]
     }
   },
