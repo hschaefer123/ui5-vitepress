@@ -3,6 +3,7 @@
 .vitepress/cache
 .vitepress/dist
 site/
+docs/
 
 # Node modules
 node_modules/

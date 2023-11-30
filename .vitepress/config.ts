@@ -19,7 +19,7 @@ const loadSyntax = async (file: string, name: string, alias: string = name): Pro
 export default defineConfig({
   base: '/ui5-vitepress/', // use this for github pages deployment
   srcDir: "src",
-  outDir: "site",
+  outDir: "docs",
   lang: "en-US",
   title: "UI5 VitePress",
   description: "Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.",
