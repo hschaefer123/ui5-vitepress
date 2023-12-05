@@ -9,6 +9,9 @@ export default {
     "./.vitepress/theme/**/*.{vue,js,ts,jsx,tsx}",
     "./src/**/*.{vue,js,ts,jsx,tsx,md}",
   ],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     colors: {
       /* defaults */
