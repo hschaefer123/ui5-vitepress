@@ -9,10 +9,10 @@ import MarkdownItPlantuml from "markdown-it-plantuml";
 
 // shikiji loading
 import { promises as fs } from 'node:fs'
-import type { LanguageInput, IRawGrammar } from 'shikiji'
+import type { LanguageInput, RawGrammar } from 'shiki'
 const loadSyntax = async (file: string, name: string, alias: string = name): Promise<LanguageInput> => {
   const src = await fs.readFile(join(__dirname, file))
-  const grammar: IRawGrammar = JSON.parse(src.toString())
+  const grammar: RawGrammar = JSON.parse(src.toString())
   return { name, aliases: [name, alias], ...grammar }
 }
 
