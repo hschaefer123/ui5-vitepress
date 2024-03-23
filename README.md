@@ -1,7 +1,7 @@
 # UI5 VitePress
 Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
 
-[Live Demo](https://hschaefer123.github.io/ui5-vitepress/)
+[Live Demo](https://hschaefer123.github.io/ui5-vitepress/) (see ``.github/workflows/deploy.yml``)
 
 **Fire and Water Design System**
 

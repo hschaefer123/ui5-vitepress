@@ -19,7 +19,7 @@ In addition, it enables the integration of dynamic and interactive tools:
 - [PlantUML](https://plantuml.com/en/) creating diagrams from plain text.
 
 <div class="flex flex-wrap justify-center space-x-4">
-    <img class="h-8 mt-2" :src="`/icons/logo/${name}.svg`"
+    <img class="h-8 mt-2" :src="`/ui5-vitepress/icons/logo/${name}.svg`"
         v-for="name in ['Vitejs', 'Rollup', 'Vuejs', 'UI5', 'PostCSS', 'TailwindCSS', 'Autoprefixer', 'cssnano', 'PlantUML', 'markdown']"/> 
 </div>
 :::

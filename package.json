@@ -20,18 +20,18 @@
     },
     "devDependencies": {
         "@odata2ts/http-client-fetch": "^0.6.2",
-        "@odata2ts/odata2ts": "^0.31.1",
+        "@odata2ts/odata2ts": "^0.33.0",
         "@types/markdown-it-plantuml": "^1.4.4",
-        "@types/node": "^20.11.25",
+        "@types/node": "^20.11.30",
         "@ui5/webcomponents": "^1.23.1",
-        "autoprefixer": "^10.4.18",
-        "cssnano": "^6.1.0",
+        "autoprefixer": "^10.4.19",
+        "cssnano": "^6.1.1",
         "markdown-it-implicit-figures": "^0.12.0",
         "markdown-it-link-attributes": "^4.0.1",
         "markdown-it-plantuml": "^1.4.1",
-        "postcss": "^8.4.35",
+        "postcss": "^8.4.38",
         "tailwindcss": "^3.4.1",
-        "vitepress": "^1.0.0-rc.45",
+        "vitepress": "^1.0.1",
         "vue": "^3.4.21"
     }
 }
