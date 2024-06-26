@@ -20,18 +20,18 @@
     },
     "devDependencies": {
         "@odata2ts/http-client-fetch": "^0.6.2",
-        "@odata2ts/odata2ts": "^0.33.0",
-        "@types/markdown-it-plantuml": "^1.4.4",
-        "@types/node": "^20.11.30",
-        "@ui5/webcomponents": "^1.23.1",
+        "@odata2ts/odata2ts": "^0.35.0",
+        "@types/markdown-it-plantuml": "^1.4.5",
+        "@types/node": "^20.14.9",
+        "@ui5/webcomponents": "^1.24.5",
         "autoprefixer": "^10.4.19",
-        "cssnano": "^6.1.1",
+        "cssnano": "^7.0.3",
         "markdown-it-implicit-figures": "^0.12.0",
         "markdown-it-link-attributes": "^4.0.1",
         "markdown-it-plantuml": "^1.4.1",
         "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.1",
-        "vitepress": "^1.0.1",
-        "vue": "^3.4.21"
+        "tailwindcss": "^3.4.4",
+        "vitepress": "^1.2.3",
+        "vue": "^3.4.30"
     }
 }

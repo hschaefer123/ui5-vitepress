@@ -17,7 +17,7 @@ const loadSyntax = async (file: string, name: string, alias: string = name): Pro
 }
 
 export default defineConfig({
-  base: '/ui5-vitepress/', // use this for github pages deployment
+  base: '/ui5-vitepress/', // use this for github pages deployment or remove for CF
   srcDir: "src",
   outDir: "site",
   lang: "en-US",
