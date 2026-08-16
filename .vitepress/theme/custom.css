@@ -1,8 +1,95 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * Tailwind CSS v4 (CSS-first configuration, no tailwind.config.js)
+ * -------------------------------------------------------------------------- */
 
-@layer base {
+/* Cascade layer order. Declared explicitly because we import the Tailwind
+** parts individually instead of `@import "tailwindcss"`. */
+@layer theme, base, components, utilities;
+
+/* Preflight is intentionally NOT imported (v3 equivalent: corePlugins.preflight
+** = false) - VitePress brings its own reset and we must not fight it. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Template sources to scan for utility classes (v3 equivalent: content[]).
+** Paths are relative to this file (.vitepress/theme). */
+@source "./**/*.{vue,js,ts,jsx,tsx}";
+@source "../../src/**/*.{vue,js,ts,jsx,tsx,md}";
+
+/* Rely on the html `dark` class VitePress toggles instead of
+** media:prefers-color-scheme (v3 equivalent: darkMode: 'class').
+** https://tailwindcss.com/docs/dark-mode#using-a-data-attribute */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/**
+ * Theme
+ * --------------------------------------------------------------------------
+ * Semantic color names on top of the default Tailwind palette.
+ * Tailwind CSS Color Generator: https://uicolors.app/create
+ */
+@theme {
+  --color-fire: #ff5a37; /* outrageous-orange-400 */
+  --color-fire-secondary: #ffa42c; /* sunshade-400 */
+
+  --color-water: #1873b4; /* denim-600 */
+  --color-water-secondary: #53b8de; /* viking-400 */
+
+  --color-outrageous-orange-50: #fff2ed;
+  --color-outrageous-orange-100: #ffe1d4;
+  --color-outrageous-orange-200: #ffbfa8;
+  --color-outrageous-orange-300: #ff9371;
+  --color-outrageous-orange-400: #ff5a37;
+  --color-outrageous-orange-500: #fe3111;
+  --color-outrageous-orange-600: #ef1707;
+  --color-outrageous-orange-700: #c60b08;
+  --color-outrageous-orange-800: #9d0f12;
+  --color-outrageous-orange-900: #7e1012;
+  --color-outrageous-orange-950: #44060a;
+
+  --color-sunshade-50: #fff8eb;
+  --color-sunshade-100: #ffebc6;
+  --color-sunshade-200: #ffd588;
+  --color-sunshade-300: #ffb94a;
+  --color-sunshade-400: #ffa42c;
+  --color-sunshade-500: #f97a07;
+  --color-sunshade-600: #dd5602;
+  --color-sunshade-700: #b73806;
+  --color-sunshade-800: #942a0c;
+  --color-sunshade-900: #7a230d;
+  --color-sunshade-950: #461002;
+
+  --color-denim-50: #f2f8fd;
+  --color-denim-100: #e3effb;
+  --color-denim-200: #c1e0f6;
+  --color-denim-300: #8bc6ee;
+  --color-denim-400: #4daae3;
+  --color-denim-500: #268fd1;
+  --color-denim-600: #1873b4;
+  --color-denim-700: #145b90;
+  --color-denim-800: #154d77;
+  --color-denim-900: #174163;
+  --color-denim-950: #0f2a42;
+
+  --color-viking-50: #f2f9fd;
+  --color-viking-100: #e4f2fa;
+  --color-viking-200: #c3e5f4;
+  --color-viking-300: #8ed0eb;
+  --color-viking-400: #53b8de;
+  --color-viking-500: #2c9fcb;
+  --color-viking-600: #1d80ac;
+  --color-viking-700: #19678b;
+  --color-viking-800: #185774;
+  --color-viking-900: #194861;
+  --color-viking-950: #112f40;
+}
+
+/**
+ * Everything below is deliberately NOT inside a cascade layer.
+ * VitePress ships its stylesheets unlayered, and unlayered rules always win
+ * over layered ones regardless of specificity - so every override of the
+ * default theme (custom properties included) has to stay outside @layer.
+ */
+
   /**
     * Colors
     * -------------------------------------------------------------------------- */
@@ -32,6 +119,31 @@
     /* The soft color must be semi transparent alpha channel. */
     /*--vp-c-brand-soft: rgba(12, 72, 120, 0.14);*/ /* --brand-dark-blue */
     --vp-c-brand-soft: rgba(3, 103, 161, 0.14); /* lochmara-700 */
+
+    /* Elemental hero (see components/ElementsBackdrop.vue + UI5Logo.vue)
+    ** Light = Water: calm, clear, fluid. */
+    --ui5-el-accent: #1873b4;         /* denim-600 */
+    --ui5-el-accent-soft: #53b8de;    /* viking-400 */
+    --ui5-el-sky: rgba(226, 243, 253, 0.9);
+    --ui5-el-grid: rgba(24, 115, 180, 0.05);
+    --ui5-el-logo-glow: rgba(83, 184, 222, 0.45);
+    /* three wave layers, back -> front */
+    --ui5-el-wave-1: #c3e5f4;         /* viking-200 */
+    --ui5-el-wave-2: #8ed0eb;         /* viking-300 */
+    --ui5-el-wave-3: #53b8de;         /* viking-400 */
+    /* ambient blobs = caustic light */
+    --ui5-el-blob-1: rgba(83, 184, 222, 0.35);
+    --ui5-el-blob-2: rgba(24, 115, 180, 0.22);
+    --ui5-el-horizon: transparent;
+
+    /* the hero headline is clipped to the gradient of the active element -
+    ** --ui5-el-accent* are redefined in .dark, so this flips along */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(
+      100deg,
+      var(--ui5-el-accent),
+      var(--ui5-el-accent-soft)
+    );
   }
   .dark {
     /* The most solid color used mainly for colored text. */
@@ -61,10 +173,77 @@
     /* This is used to divide components in the page. For example the header and the rest of the page. */
     /*--vp-c-gutter: var(--vp-c-bg-alt);*/ /* #000000 */
     --vp-c-gutter: transparent; /* #000000 */
+
+    /* Elemental hero - Dark = Fire: bold, fast, forged.
+    ** Same geometry, ember palette instead of water blue. */
+    --ui5-el-accent: #ff5a37;         /* outrageous-orange-400 */
+    --ui5-el-accent-soft: #ffa42c;    /* sunshade-400 */
+    --ui5-el-sky: rgba(26, 12, 6, 0.9);
+    --ui5-el-grid: rgba(255, 90, 55, 0.06);
+    --ui5-el-logo-glow: rgba(255, 140, 43, 0.5);
+    /* ember horizon instead of blue waves */
+    --ui5-el-wave-1: #2a120a;
+    --ui5-el-wave-2: #3d180c;
+    --ui5-el-wave-3: #57200e;
+    --ui5-el-blob-1: rgba(255, 90, 55, 0.28);
+    --ui5-el-blob-2: rgba(255, 164, 44, 0.16);
+    --ui5-el-horizon: rgba(255, 110, 40, 0.35);
   }
 
-  img {
-    @apply rounded-md;
+  /* Wording that only exists in one element. Done in CSS rather than with a
+  ** reactive isDark, so the SSR output stays valid for both themes. */
+  .only-water,
+  .only-fire {
+    display: inline;
+  }
+
+  html.dark .only-water {
+    display: none;
+  }
+
+  html:not(.dark) .only-fire {
+    display: none;
+  }
+
+  /* the animated signet brings its own glow - drop the default blur blob */
+  .VPHero .image-bg {
+    display: none;
+  }
+
+  /* Elemental hero backdrop (components/ElementsBackdrop.vue):
+  ** the layout becomes the containing block so the backdrop can span the full
+  ** page, and the footer goes transparent so the waves stay visible behind it. */
+  .Layout:has(.ui5-elements) {
+    position: relative;
+  }
+
+  .Layout:has(.ui5-elements) .VPFooter {
+    background-color: transparent;
+    border-top: none;
+  }
+
+  /* frosted-glass search button so the backdrop shines through the navbar,
+  ** bordered in the same tint as the engineering grid behind it */
+  .Layout:has(.ui5-elements) .VPNavBarSearchButton {
+    background-color: transparent;
+    border: 1px solid color-mix(in srgb, var(--ui5-el-accent) 15%, transparent);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.6s ease;
+  }
+
+  .Layout:has(.ui5-elements) .VPNavBarSearchButton:hover {
+    border-color: var(--ui5-el-accent-soft);
+  }
+
+  /* feature cards get the same frosted-glass treatment */
+  .Layout:has(.ui5-elements) .VPFeature {
+    background-color: color-mix(in srgb, var(--vp-c-bg-soft) 35%, transparent);
+    border-color: color-mix(in srgb, var(--ui5-el-accent) 20%, transparent);
+    backdrop-filter: blur(8px);
+  }
+
+  .Layout:has(.ui5-elements) .VPFeature:hover {
+    border-color: var(--ui5-el-accent-soft);
   }
 
   /* fix Tailwind default issue for Search button */
@@ -72,10 +251,16 @@
   .DocSearch[type="button"] {
     background-color: var(--vp-c-bg-alt);
   }
+
+/* Layered on purpose: a rounded corner is a default that any more specific
+** VitePress or page rule may override. */
+@layer base {
+  img {
+    @apply rounded-md;
+  }
 }
 
 /* Implement udina design language by avoiding repeated utility patterns */
-@layer components {
   /* reset vpdoc */
   .vp-doc .u-list-reset {
     @apply list-none list-image-none p-0 m-0;
@@ -116,7 +301,6 @@
   .u-bar-singleLineContent {
     @apply flex md:items-center flex-col md:flex-row space-y-2 md:space-y-0;
   }
-}
 
 /**
  * Prototypes

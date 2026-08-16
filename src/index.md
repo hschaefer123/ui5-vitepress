@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: UI5
-  text: VitePress
-  tagline: Pre-configured “Ready to Run” solution to get started immediately with VitePress and UI5.
-  image:
-    light: "/icons/ui5/B.svg"
-    dark: "/icons/ui5/O.svg"
+  # name, text and tagline are rendered with v-html, so the element specific
+  # wording can be switched via the .only-water / .only-fire helper classes
+  name: '<span class="only-water">Element: Water.</span><span class="only-fire">Element: Fire.</span>'
+  tagline: 'The VitePress template for enterprise-grade SAPUI5 &amp; OpenUI5 documentation. <span class="only-water">Calm, clear, fluid — light mode flows.</span><span class="only-fire">Bold, fast, forged — dark mode burns.</span>'
+  # the hero image is rendered by .vitepress/theme/components/UI5Logo.vue
+  # via the "home-hero-image" slot (see .vitepress/theme/Layout.vue)
   actions:
     - theme: brand
       text: Get Started
@@ -27,4 +27,4 @@ features:
       title: Tailwind CSS
       details: An API enabling a utility-first driven design system.
 ---
-<style> :root { --vp-home-hero-image-background-image: linear-gradient(-45deg, #53b8de 50%, #1873b4 50%); --vp-home-hero-image-filter: blur(40px); } .dark { --vp-home-hero-image-background-image: linear-gradient(-45deg, #ffa42c 50%, #ff5a37 50%); } @media (min-width: 640px) { :root { --vp-home-hero-image-filter: blur(56px); } } @media (min-width: 960px) { :root { --vp-home-hero-image-filter: blur(72px); } } .VPFeature .icon { background-color: transparent; }</style>
+<style> .VPFeature .icon { background-color: transparent; }</style>
