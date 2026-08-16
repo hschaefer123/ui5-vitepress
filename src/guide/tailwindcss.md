@@ -9,28 +9,36 @@
 Utility classes help you work within the constraints of a system instead of littering your stylesheets with arbitrary values. They make it easy to be consistent with color choices, spacing, typography, shadows, and everything else that makes up a well-engineered design system.
 
 ## Customization
-By default, Tailwind will look for an optional tailwind.config.js file at the root of your project where you can define any customizations.
+Since Tailwind CSS v4 the configuration is **CSS-first**: there is no ``tailwind.config.js`` anymore, everything lives in ``.vitepress/theme/custom.css``.
 
-Customizing the default color palette allow to add semantic color names like ``Fire`` and ``Water`` to your project.
+Because VitePress ships its own reset, Preflight must not be loaded. Instead of the single ``@import "tailwindcss"`` the parts are imported individually:
 
-``tailwind.config.js``
-```js
-import colors from 'tailwindcss/colors'
-export default {
-  theme: {
-    ...
-    colors: {
-      fire: {
-        DEFAULT: '#ff5a37',
-        secondary: '#ffa42c'
-      },
-      water: {
-        DEFAULT: '#1873b4',
-        secondary: '#53b8de'
-      }
-    }
-    ...
+``.vitepress/theme/custom.css``
+```css
+@layer theme, base, components, utilities;
 
+/* no "tailwindcss/preflight.css" - VitePress brings its own reset */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* which files to scan for utility classes */
+@source "./**/*.{vue,js,ts,jsx,tsx}";
+@source "../../src/**/*.{vue,js,ts,jsx,tsx,md}";
+
+/* use the html "dark" class VitePress toggles */
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+Customizing the color palette allows to add semantic color names like ``Fire`` and ``Water`` to your project. Every ``--color-*`` variable inside ``@theme`` automatically becomes a utility (``text-fire``, ``bg-water-secondary``, …):
+
+```css
+@theme {
+  --color-fire: #ff5a37;
+  --color-fire-secondary: #ffa42c;
+
+  --color-water: #1873b4;
+  --color-water-secondary: #53b8de;
+}
 ```
 
 The customized colors are supported by the Tailwind CSS tooling for VS Code:
@@ -38,14 +46,27 @@ The customized colors are supported by the Tailwind CSS tooling for VS Code:
 ![Intelligent Tailwind CSS tooling for VS Code - Color Completion](/tailwind-css-vsc-color-completion.png)
 
 ## Using PostCSS as preprocessor
-Tailwind is used as a PostCSS plugin together with [Autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
+Tailwind is used as a PostCSS plugin via ``@tailwindcss/postcss``:
+
+``postcss.config.js``
+```js
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {}
+  }
+}
+```
+
+::: tip Autoprefixer and cssnano are no longer needed
+Tailwind CSS v4 handles vendor prefixing internally via [Lightning CSS](https://lightningcss.dev/), and Vite minifies the CSS during ``build``. Both [Autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/) were therefore removed from the setup.
+:::
 
 This has a few benefits:
 
 Benefit | Description
 :-----: | -----------
 Your builds will be faster | Since your CSS doesn’t have to be parsed and processed by multiple tools, your CSS will compile much quicker using only PostCSS.
-No quirks or workarounds | Because Tailwind adds some new non-standard keywords to CSS (like @tailwind, @apply, theme(), etc.), you often have to write your CSS in annoying, unintuitive ways to get a preprocessor to give you the expected output. Working exclusively with PostCSS avoids this.
+No quirks or workarounds | Because Tailwind adds some new non-standard keywords to CSS (like @theme, @apply, @source, etc.), you often have to write your CSS in annoying, unintuitive ways to get a preprocessor to give you the expected output. Working exclusively with PostCSS avoids this.
 
 
 ## It’s tiny — never ship unused CSS again.

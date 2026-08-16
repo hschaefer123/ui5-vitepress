@@ -13,14 +13,12 @@ In addition, it enables the integration of dynamic and interactive tools:
 - [Vue](https://vuejs.org/) based [Single-File Components (SFC)](https://vuejs.org/guide/scaling-up/sfc.html#single-file-components)
 - [UI5 Web Components](https://sap.github.io/ui5-webcomponents/) implementing the Fiori design system.
 - [PostCSS](https://postcss.org/) preprocessor transforming CSS with [plugins](https://github.com/postcss/postcss/blob/main/docs/plugins.md):
-    - [Tailwind CSS](https://tailwindcss.com/) enabling a utility-first driven design system.
-    - [Autoprefixer](https://github.com/postcss/autoprefixer) adding vendor prefixes to CSS rules.
-    - [cssnano](https://cssnano.co/) optimizing for production with modern CSS compression. 
+    - [Tailwind CSS](https://tailwindcss.com/) enabling a utility-first driven design system, incl. vendor prefixing via [Lightning CSS](https://lightningcss.dev/).
 - [PlantUML](https://plantuml.com/en/) creating diagrams from plain text.
 
 <div class="flex flex-wrap justify-center space-x-4">
     <img class="h-8 mt-2" :src="`/ui5-vitepress/icons/logo/${name}.svg`"
-        v-for="name in ['Vitejs', 'Rollup', 'Vuejs', 'UI5', 'PostCSS', 'TailwindCSS', 'Autoprefixer', 'cssnano', 'PlantUML', 'markdown']"/> 
+        v-for="name in ['Vitejs', 'Rollup', 'Vuejs', 'UI5', 'PostCSS', 'TailwindCSS', 'PlantUML', 'markdown']"/> 
 </div>
 :::
 

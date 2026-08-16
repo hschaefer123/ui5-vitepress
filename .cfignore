@@ -12,7 +12,6 @@ postcss.config.ts
 package-lock.json
 package.json
 README.md
-tailwind.config.js
 tsconfig.json
 
 # OSX

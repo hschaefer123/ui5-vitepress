@@ -1,4 +1,4 @@
-import { ConfigFileOptions, EmitModes, Modes } from "@odata2ts/odata2ts";
+import { ConfigFileOptions, Modes } from "@odata2ts/odata2ts";
 
 const config: ConfigFileOptions = {
   mode: Modes.service,

@@ -12,9 +12,7 @@ Pre-configured “Ready to Run” solution to get started immediately with ViteP
 - Vue based Single-File Components (SFC)
 - UI5 Web Components implementing the Fiori design system.
 - PostCSS preprocessor transforming CSS with plugins:
-   - Tailwind CSS enabling a utility-first driven design system.
-   - Autoprefixer adding vendor prefixes to CSS rules.
-   - cssnano optimizing for production with modern CSS compression.
+   - Tailwind CSS enabling a utility-first driven design system, incl. vendor prefixing via Lightning CSS.
 - PlantUML creating diagrams from plain text.
 - Deployment
    - GitHub Pages using actions

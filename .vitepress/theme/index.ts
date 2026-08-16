@@ -1,5 +1,5 @@
 import DefaultTheme from "vitepress/theme";
-import { EnhanceAppContext } from 'vitepress/dist/client/index.js'
+import type { EnhanceAppContext } from "vitepress";
 import { useRoute } from "vitepress";
 import { onMounted, watch, nextTick } from "vue";
 
@@ -9,8 +9,12 @@ import "./custom.css";
 // global components
 import Badgen from "@theme/components/Badgen.vue";
 
+// layout extended with the animated "fire and water" hero
+import Layout from "@theme/Layout.vue";
+
 export default {
   ...DefaultTheme,
+  Layout,
 
   enhanceApp(ctx: EnhanceAppContext) {
     // app is the Vue 3 app instance from `createApp()`.

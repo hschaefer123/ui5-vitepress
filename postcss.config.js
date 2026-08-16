@@ -1,7 +1,8 @@
 export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
+    // Tailwind CSS v4 ships its own PostCSS plugin and handles vendor
+    // prefixing internally (Lightning CSS), so autoprefixer is obsolete.
+    // Minification is done by Vite (build.cssMinify), so cssnano is obsolete too.
+    '@tailwindcss/postcss': {}
   }
 }

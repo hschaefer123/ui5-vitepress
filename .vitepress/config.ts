@@ -11,9 +11,14 @@ import MarkdownItPlantuml from "markdown-it-plantuml";
 import { promises as fs } from 'node:fs'
 import type { LanguageInput, RawGrammar } from 'shiki'
 const loadSyntax = async (file: string, name: string, alias: string = name): Promise<LanguageInput> => {
-  const src = await fs.readFile(join(__dirname, file))
+  // `import.meta.dirname` (Node >= 22) - VitePress 2 loads the config as ESM,
+  // where `__dirname` is not available.
+  const src = await fs.readFile(join(import.meta.dirname, file))
   const grammar: RawGrammar = JSON.parse(src.toString())
-  return { name, aliases: [name, alias], ...grammar }
+  // spread first: the grammar's own `name` (e.g. "CDS" for both cds and
+  // abapcds) must not win over the language id we register it under.
+  // `aliases` must not contain `name` itself - shiki rejects circular aliases.
+  return { ...grammar, name, aliases: alias === name ? [] : [alias] }
 }
 
 export default defineConfig({

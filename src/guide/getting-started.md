@@ -83,7 +83,6 @@ The ``srv`` directory is considered the **project root** of the VitePress site. 
 ├─ package.json
 ├─ postcss.config.js
 ├─ Staticfile
-├─ tailwind.config.js
 └─ package.json
 ```
 
@@ -131,7 +130,6 @@ package-lock.json
 package.json
 postcss.config.ts
 README.md
-tailwind.config.js
 tsconfig.json
 
 # OSX
